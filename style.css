@@ -11,7 +11,7 @@ body {
 #eraser {
     background-color: white;
     padding: 10px 30px;
-    margin-top: 20px;
+    margin: 20px 0px;
 }
 
 #header {
@@ -24,16 +24,10 @@ body {
     height: 10vh;
 }
 
-#main-content {
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
-    background-color: red;
-}
 
-.edge {
+#controls {
     display: flex;
-    flex: 1 1 auto;
+    flex: 1 0 auto;
     flex-direction: column;
     justify-content: flex-start;
     gap: 20px;
@@ -59,9 +53,9 @@ body {
 }
 
 #eas-container {
-    width: 480px;
-    height: 480px;
-    background-color: lightgray;
+    display: flex;
+    place-content: center;
+    background-color: red;
 }
 
 #footer {

@@ -1,11 +1,12 @@
 const container = document.querySelector("#eas-container");
 const pixScaleLabel = document.querySelector("#pixscale");
+let gridSize = 480;
 let pixScale = 8;
 let penOn = false;
 let color = "black";
 
 function createGrid(pixScale) {
-    let pixSize = 480 / pixScale;
+    let pixSize = gridSize / pixScale;
     grid = document.createElement("div");
     grid.setAttribute("id", "eas");
     grid.style.display = "grid";
@@ -13,6 +14,7 @@ function createGrid(pixScale) {
     grid.style.gridTemplateRows = `repeat(${pixScale},${pixSize}px)`; 
     grid.style.justifyContent = "stretch";
     grid.style.alignItems = "stretch";
+    grid.style.backgroundColor = "lightgray";
     grid.addEventListener('mousedown', () => {
         penOn = true;
     })
@@ -26,7 +28,7 @@ function createGrid(pixScale) {
 }
 
 function createPixels(pixScale) {
-    let pixSize = 480 / pixScale;
+    let pixSize = gridSize / pixScale;
     for (rows = 1; rows <= pixScale; rows++) {
         for (columns = 1; columns <= pixScale; columns++) {
             gridItem = document.createElement("div");
@@ -34,6 +36,7 @@ function createPixels(pixScale) {
             gridItem.classList.add('gridItem');
             gridItem.style.width = pixSize;
             gridItem.style.height = pixSize;
+            gridItem.style.border = "1px dashed darkgray"
             gridItem.addEventListener('mouseenter', function (e) {
                 if (penOn == true) {
                     e.target.style.background = color;
